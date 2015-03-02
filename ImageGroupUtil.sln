@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageGroupUtil", "ImageGroupUtil.csproj", "{BDB61932-D2A9-44A6-845A-DD2F1AE007CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDB61932-D2A9-44A6-845A-DD2F1AE007CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDB61932-D2A9-44A6-845A-DD2F1AE007CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDB61932-D2A9-44A6-845A-DD2F1AE007CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDB61932-D2A9-44A6-845A-DD2F1AE007CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
