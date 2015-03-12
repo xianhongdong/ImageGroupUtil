@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.dataGridViewSource = new System.Windows.Forms.DataGridView();
+            this.ColumnSrc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.textBoxDstPath = new System.Windows.Forms.TextBox();
@@ -39,8 +41,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDel = new System.Windows.Forms.Button();
-            this.ColumnSrc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnButton = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConflit)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,20 @@
             this.dataGridViewSource.Size = new System.Drawing.Size(458, 162);
             this.dataGridViewSource.TabIndex = 0;
             this.dataGridViewSource.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSource_CellContentClick);
+            // 
+            // ColumnSrc
+            // 
+            this.ColumnSrc.HeaderText = "源路径";
+            this.ColumnSrc.Name = "ColumnSrc";
+            this.ColumnSrc.Width = 300;
+            // 
+            // ColumnButton
+            // 
+            this.ColumnButton.HeaderText = "浏览";
+            this.ColumnButton.Name = "ColumnButton";
+            this.ColumnButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnButton.Text = "浏览";
             // 
             // label1
             // 
@@ -142,20 +156,6 @@
             this.buttonDel.UseVisualStyleBackColor = true;
             this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
-            // ColumnSrc
-            // 
-            this.ColumnSrc.HeaderText = "源路径";
-            this.ColumnSrc.Name = "ColumnSrc";
-            this.ColumnSrc.Width = 300;
-            // 
-            // ColumnButton
-            // 
-            this.ColumnButton.HeaderText = "浏览";
-            this.ColumnButton.Name = "ColumnButton";
-            this.ColumnButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnButton.Text = "浏览";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -174,7 +174,6 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "jpg util";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -11,6 +11,8 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ImageGroupUtil
@@ -88,16 +90,22 @@ namespace ImageGroupUtil
                 srcDirs.Add(src);
             }
             var result = new List<RelocateFailFile>();
-            var flag = true;
-            foreach(var path in srcDirs)
-            {
-                var dirInfo = new DirectoryInfo(path);
-                if(!ImageDateTimeGroupUtil.RelocateDiretoryFile(dirInfo,dstDir,result))
-                {
-                    flag = false;
-                }
-            }
-            if(!flag)
+            var totalState = 0;
+            Parallel.ForEach(srcDirs
+                            , () => 0
+                            , (path, loopState, localState) =>
+                                {
+                                    var dirInfo = new DirectoryInfo(path);
+                                    if (!ImageDateTimeGroupUtil.RelocateDiretoryFile(dirInfo, dstDir, result))
+                                    {
+                                        loopState.Stop();
+                                        return -1;
+                                    }
+                                    return 1;
+                                }
+                            , (localState) => { Interlocked.Add(ref totalState, localState); });
+            
+            if (totalState != srcDirs.Count)
             {
                 dataGridViewConflit.Rows.Clear();
                 foreach(var item in result)

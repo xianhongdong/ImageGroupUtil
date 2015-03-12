@@ -46,8 +46,16 @@ namespace ImageGroupUtil
         static public bool RelocateFile(string sourceFile, string dstDir, List<RelocateFailFile> result)
         {
             var val = ImagePropertyUtil.GetProperty(sourceFile, "拍摄日期");
-            //删除Unicode控制字符
-            val = Regex.Replace(val, @"[^\u0020-\u007E]", string.Empty);
+            if (!string.IsNullOrEmpty(val))
+            {
+                //删除Unicode控制字符
+                val = Regex.Replace(val, @"[^\u0020-\u007E]", string.Empty);
+            }
+            else
+            {
+                var arr = ImagePropertyUtil.GetProperties(sourceFile);
+                val = ImagePropertyUtil.GetProperty(sourceFile, "修改日期");
+            }
             var dstPath = GetRelocatePath(dstDir, val);
             var fileName = Path.GetFileName(sourceFile);
             var dstFilePath = string.Format("{0}\\{1}", dstPath, fileName);
